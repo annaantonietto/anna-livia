@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Força do Campo - Produção Agropecuária</title>
+    <style>
+        :root {
+            --bg-color: #f4f9f4;
+            --text-color: #2c3e50;
+            --primary-color: #27ae60;
+            --secondary-color: #d35400;
+            --overlay-brightness: rgba(0, 0, 0, 0);
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            transition: font-size 0.2s ease, background-color 0.3s ease;
+        }
+
+        /* Camada para o efeito de brilho/escuridão */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-color: var(--overlay-brightness);
+            pointer-events: none;
+            z-index: 9999;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Barra de Acessibilidade */
+        .accessibility-bar {
+            background-color: #e2ede2;
+            padding: 10px;
+            text-align: right;
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .accessibility-bar button {
+            background-color: #fff;
+            border: 1px solid #bdc3c7;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .accessibility-bar button:hover {
+            background-color: #eaeaea;
+        }
+
+        /* Cabeçalho */
+        header {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1500937386664-56d1dfef3854?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin-top: 10px;
+        }
+
+        /* Conteúdo Principal */
+        main {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* Grid de Botões/Seções */
+        .actions {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 5px solid var(--primary-color);
+            text-align: center;
+        }
+
+        .card h2 {
+            margin-top: 0;
+            color: var(--primary-color);
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #1e8449;
+        }
+
+        .btn-orange {
+            background-color: var(--secondary-color);
+        }
+
+        .btn-orange:hover {
+            background-color: #b33939;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 5px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="accessibility-bar">
+        <span>Acessibilidade:</span>
+        <button onclick="alterarFonte(1)" title="Aumentar Letra">A+ 🔍</button>
+        <button onclick="alterarFonte(-1)" title="Diminuir Letra">A- 🔎</button>
+        <button onclick="alterarBrilho(0.1)" title="Diminuir Brilho (Escurecer)">🌙 Escurecer</button>
+        <button onclick="alterarBrilho(-0.1)" title="Aumentar Brilho (Clarear)">☀️ Clarear</button>
+    </div>
+
+    <header>
+        <h1>A Força do Campo 🌾🚜</h1>
+        <p>O motor que alimenta o mundo e move a nossa economia.</p>
+    </header>
+
+    <main>
+        <section class="intro">
+            <h2>A Abundância da Nossa Terra 🌱</h2>
+            <p>Do pequeno produtor ao grande ecossistema agrícola, a dedicação na terra garante o alimento na mesa de milhões de pessoas todos os dias. Conheça mais sobre a potência da nossa produção rural.</p>
+        </section>
+
+        <hr style="border: 0; border-top: 1px solid #ccc; margin: 40px 0;">
+
+        <div class="actions">
+            <div class="card">
+                <h2>Curiosidades 🧑‍🌾</h2>
+                <p>Você sabia que a tecnologia no campo hoje envolve drones, satélites e sementes altamente selecionadas? Descubra fatos surpreendentes sobre a evolução do agro.</p>
+                <button class="btn" onclick="alert('Curiosidade: Uma única semente de milho bem cultivada pode produzir uma espiga com mais de 800 grãos! 🌽')">Ver Curiosidades</button>
+            </div>
+
+            <div class="card">
+                <h2>Saiba Mais 🍃</h2>
+                <p>Quer entender como funciona a cadeia de produção, os cuidados com o solo, a sustentabilidade e a colheita do que consumimos?</p>
+                <button class="btn btn-orange" onclick="alert('Aqui você encontraria artigos detalhados sobre técnicas de plantio direto, rotação de culturas e preservação ambiental! 🌲')">Saiba Mais</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Produzido com 🌾 e 🌻 - Conectando o campo à cidade.</p>
+    </footer>
+
+    <script>
+        // Função para alterar o tamanho da fonte do site
+        let tamanhoFonteAtual = 100; // Em porcentagem
+        function alterarFonte(direcao) {
+            tamanhoFonteAtual += (direcao * 10);
+            // Limites para não ficar grande ou pequeno demais
+            if (tamanhoFonteAtual < 70) tamanhoFonteAtual = 70;
+            if (tamanhoFonteAtual > 150) tamanhoFonteAtual = 150;
+            
+            document.body.style.fontSize = tamanhoFonteAtual + "%";
+        }
+
+        // Função para simular o controle de brilho/escuridão da tela
+        let opacidadeFiltro = 0; // 0 significa brilho normal (totalmente transparente)
+        function alterarBrilho(fator) {
+            opacidadeFiltro += fator;
+            // Limites: 0 (normal) até 0.7 (bem escuro, para não sumir o site todo)
+            if (opacidadeFiltro < 0) opacidadeFiltro = 0;
+            if (opacidadeFiltro > 0.7) opacidadeFiltro = 0.7;
+            
+            // Aplica a opacidade na camada que cobre o site
+            document.documentElement.style.setProperty('--overlay-brightness', `rgba(0, 0, 0, ${opacidadeFiltro})`);
+        }
+    </script>
+</body>
+</html>
